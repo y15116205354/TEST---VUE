@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <script src="../2.2.2/vue.min.js"></script> -->
+  </header>
+
+<body>
+  <div id="divID">
+    <h2>使用 AJAX 修改该文本内容</h2>
+  </div>
+  <button type="button" onclick="AJX()">修改内容</button>
+
+</body>
+
+</html>
+<script>
+
+  function AJX() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+      //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+      xmlhttp = new XMLHttpRequest()
+    } else {
+      // IE6, IE5 浏览器执行代码
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        document.getElementById('divID').innerHTML = xmlhttp.responseText;
+      }
+      // alert('>???')
+    }
+    xmlhttp.open("GET", "ajax_info.txt", true);
+    // xmlhttp.send();
+  }
+
+
+</script>

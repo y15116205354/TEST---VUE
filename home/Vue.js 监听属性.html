@@ -10,16 +10,58 @@
 <body>
   <div id="app">
     <p>金额:{{count}}元</p>
-    <button @click = 'count++'>点我加一块钱</button>
+    <button @click='count++'>点我加一块钱</button>
+  </div>
+
+  <div id="main">
+    <p>计数器:{{counter}}</p>
+    <button @click='counter++'>点我+1</button>
+  </div>
+
+  <div id="computed_props">
+    千米 : <input type="text" v-model="kilometers">
+    米 : <input type="text" v-model="meters">
+    <p id='info'></p>
   </div>
 </body>
 
 </html>
 <script>
   var vm = new Vue({
-    el:"#app",
-    data:{
-      count:'1'
+    el: "#app",
+    data: {
+      count: '1'
     },
+  })
+
+  var st = new Vue({
+    el: '#main',
+    data: {
+      counter: 1
+    }
+  });
+  st.$watch('counter', function (nval, oval) {
+    alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+  });
+
+  var mm = new Vue({
+    el: "#computed_props",
+    data: {
+      kilometers: '0',
+      meters: '0'
+    },
+    watch: {
+      kilometers: function (val) {
+        this.kilometers = val,
+          this.meters = val * 1000
+      },
+      meters: function (val) {
+        this.meters = val,
+          this.kilometers = val / 1000
+      }
+    }
+  })
+  mm.$watch('kilometers',function(startval,endval){
+    document.getElementById ("info").innerHTML = "修改前值为: " + endval + "，修改后值为: " + startval;
   })
 </script>

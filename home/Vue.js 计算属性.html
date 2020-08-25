@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Vue 测试实例 </title>
+  <script src="../2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <p>
+      初始数据：{{message}}
+    </p>
+
+    <p>
+      变更数据:{{rnmessage}}
+    </p>
+    <p> 变更数据2:{{rnmessage2()}}</p>
+  </div>
+  <div id="main">
+    <p>{{site}}</p>
+  </div>
+
+  <script>
+    // computed vs methods
+    // 我们可以使用 methods 来替代 computed，效果上两个都是一样的，
+    // 但是 computed 是基于它的依赖缓存，只有相关依赖发生改变时才会重新取值。
+    // 而使用 methods ，在重新渲染的时候，函数总会重新调用执行。
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: 'Beidou',
+      },
+      computed: {
+        rnmessage: function () {
+          return this.message.split('').reverse().join('')
+        }
+      },
+      methods: {
+        rnmessage2: function () {
+          return this.message.split('').reverse().join('')
+        }
+      }
+    })
+
+    var ST = new Vue({
+      el: '#main',
+      data: {
+        name: 'baidu',
+        url: 'https://www.baidu.com',
+      },
+      computed: {
+        site: {
+          get: function () {
+            return this.name + ' ' + this.url
+          },
+          set: function (newValue) {
+            var names = newValue.split(' ')
+              this.name = names[0]
+              this.url = names[1]
+          }
+        }
+      }
+    })
+    ST.site = '谷歌 http://www.goole.com';
+    document.write('name: ' + ST.name);
+    document.write('<br>');
+    document.write('url: ' + ST.url);
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <script src="../2.2.2/vue.min.js"></script> -->
+  </header>
+</head>
+
+<body>
+
+
+  <h2>Retrieve data from XML file</h2>
+  <p><b>Status:</b><span id="A1"></span></p>
+  <p><b>Status text:</b><span id="A2"></span></p>
+  <p><b>Response:</b><span id="A3"></span></p>
+  <button onclick="loadXMLDoc()">Get XML data</button>
+  ​
+</body>
+<script>
+  function loadXMLDoc() {
+    var xmlhttp;
+    if (window.XMLHttpRequest) {
+      xmlhttp = new XMLHttpRequest();
+    } else {
+      xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    xmlhttp.onreadystatechange = function () {
+      if (xmlhttp.readystate == 4 && xmlhttp.status == 200) {
+        alert(';;;;')
+        // document.getElementById('A1').innerHTML = xmlhttp.status;
+        // document.getElementById('A2').innerHTML = xmlhttp.statusText;
+        // document.getElementById('A3').innerHTML = xmlhttp.responseText;
+      }
+     
+    }
+    xmlhttp.open("GET","ajax_info.txt",true);
+    xmlhttp.send();
+  }
+
+
+  
+</script>
+
+</html>

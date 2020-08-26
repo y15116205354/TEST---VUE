@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+
+</body>
+<script>
+        //charAt   输入索引 返回索引对应的字符
+        //indexOf  可以检索一个字符串中 是否还有指定内容  如果有，返回其第一次索引，如果没有找到指定内容，返回-1
+        //可以指定第二个参数  从指定开始位置查找
+        //lastIndexOf   效果与indexOf类似  但是是从后面往前找
+        var str = 'hello horld ,nihao';
+        console.log( str.charAt(8));
+        console.log(str.indexOf('o',5));
+
+        //slice 可以从字符串中截取指定的内容.不会影响原数组   开始---结束
+        //另外  substring   也可以截取字符串     开始包括  不包括结束最后一位  第二个参数不能传负数。
+        //最后  substr  也可以截取字符串  你应该清楚吧  嘿嘿
+        console.log(str.slice(0,3))
+
+
+        // toUpperCase()  把字符串转换成大写
+        // toLowerCase()  把字符串转换成小写   都不会影响原字符串
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+</script>
+
+</html>

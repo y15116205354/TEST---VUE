@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <script src="../2.2.2/vue.min.js"></script>
+  <style>
+    .active {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    .danger {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+
+
+<body>
+  <!-- 阻止单击事件冒泡 -->
+<a v-on:click.stop="doThis"></a>
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+<!-- 修饰符可以串联  -->
+<a v-on:click.stop.prevent="doThat"></a>
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+<!-- 添加事件侦听器时使用事件捕获模式 -->
+<div v-on:click.capture="doThis">...</div>
+<!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+<div v-on:click.self="doThat">...</div>
+
+<!-- click 事件只能点击一次，2.1.4版本新增 -->
+<a v-on:click.once="doThis"></a>
+
+  <!-- 事件监听可以使用 v-on 指令：
+  v-on 可以接收一个定义的方法来调用。 -->
+  <div id="app">
+    <p>{{message}}</p>
+    <!-- 为啥要用中括号 -->
+    <div class="TEST" v-bind:class="[message ? active : danger]"></div>
+    <button class="static" v-on:click="button">点我改变状态</button>
+  </div>
+
+  <div id="main">
+    <!-- `greet` 是在下面定义的方法名 -->
+    <button v-on:click="greet">Greet</button>
+  </div>
+
+</html>
+
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      message: true,
+      active: 'active',
+      danger: 'danger'
+    },
+    methods: {
+      button: function () {
+
+        this.message = !this.message;
+        alert('4445' + this.message)
+      }
+    }
+  })
+
+  var st = new Vue({
+    el: '#main',
+    data: {
+      name: 'Vue.js'
+    },
+    // 在 `methods` 对象中定义方法
+    methods: {
+      greet: function (event) {
+        // `this` 在方法里指当前 Vue 实例
+        alert('Hello ' + this.name + '!')
+        // `event` 是原生 DOM 事件
+        if (event) {
+          alert(event.target.tagName)
+        }
+      }
+    }
+  })
+</script>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <button onclick="myfunction()">点我啊</button>
+  <p></p>
+
+  <p>不管输入是否正确，输入框都会再输入后清空。</p>
+  <p>请输入 5 ~ 10 之间的数字：</p>
+  <input id="demo" type="text">
+  <button type="button" onclick="myFunctions()">点我</button>
+
+  <p id="p01"></p>
+</body>
+
+<script>
+
+
+  // try 语句测试代码块的错误。
+  // catch 语句处理错误。
+  // throw 语句创建自定义错误。
+  // finally 语句在 try 和 catch 语句之后，无论是否有触发异常，该语句都会执行。
+
+  // try 语句允许我们定义在执行时进行错误测试的代码块。
+  // catch 语句允许我们定义当 try 代码块发生错误时，所执行的代码块。
+  // JavaScript 语句 try 和 catch 是成对出现的。
+  //  throw 语句允许我们创建自定义错误。
+  var x;
+  function myfunction() {
+
+    try {
+      adddlert("Welcome guest!");
+    } catch (err) {
+
+      x = "有错误！\n\n";
+      x += '错误消息是' + err + "\n\n";
+      x += "点击确定继续。\n\n";
+      alert(x);
+    }
+  }
+
+
+  //finally 语句不论之前的 try 和 catch 中是否产生异常都会执行该代码块。
+  function myFunctions() {
+    var message, x;
+    message = document.getElementById("p01");
+    message.innerHTML = '';
+    x = document.getElementById("demo").value;  
+    try {
+      if (isNaN(x)) throw "值不是一个数字";
+      x = Number(x);
+      if (x == '') throw "不能为空";
+      if (x < 5) throw "小了";
+      if (x > 10) throw "大了"
+    } catch (error) {
+      message.innerHTML = "错误: " + error + ".";
+    }
+    finally{
+      document.getElementById('demo').value='吾无处不在';
+    };
+  }
+
+</script>
+
+</html>

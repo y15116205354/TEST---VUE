@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+  <text id="main"></text>
+  <button onclick="cta()">定时器停止</button>
+
+  <button onclick="myfunction()">延时器开始</button>
+  <button onclick="youfunction()">延时器停止</button>
+</body>
+<script>
+  //   JavaScript 计时事件
+  // 通过使用 JavaScript，我们有能力做到在一个设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。我们称之为计时事件。
+  // 在 JavaScritp 中使用计时事件是很容易的，两个关键方法是:
+  // setInterval() - 间隔指定的毫秒数不停地执行指定的代码。 ---定时器
+  // setTimeout() - 在指定的毫秒数后执行指定代码。----延时器
+  // 注意: setInterval() 和 setTimeout() 是 HTML DOM Window对象的两个方法
+
+  // setInterval() 第一个参数是函数（function）。第二个参数间隔的毫秒数
+
+  //那么我们写一个简单的定时器吧
+  // setInterval(function(){
+  //   alert('你好');
+  // },3000);
+  //现在你已经会一个简单的定时器了，那么我们开始做一个  时间显示吧
+  //提供  toLocaleTimeString 根据本地时间把 Date 对象的时间部分转换为字符串：
+  //  步骤   首先  声明一个函数   
+  //   使用date方法  获取我们的当前时间
+  //   使用定时器  把函数传入第一个参数   执行函数   实现效果
+  var state = setInterval(function () { act() }, 1000);
+
+  function act() {
+    var time = new Date();
+    var r = time.toLocaleTimeString();
+    document.getElementById("main").innerHTML = r;
+  }
+  //  好了  你已经实现了  一个时间显示
+  //clearInterval() 方法用于停止 setInterval() 方法执行的函数代码。
+  // 那么开始停止它
+
+  function cta() {
+    clearInterval(state);
+  }
+
+    //那么我们写一个简单的延时器吧
+
+  var set;
+  function myfunction(){
+   set = setTimeout(function(){
+      document.write('小北斗');
+    },3000);
+  }
+  //  clearTimeout() 方法用于停止执行setTimeout()方法的函数代码。
+
+
+  function youfunction(){
+    clearTimeout(set);
+  }
+
+  //  关于 cookie  这个应该不要我多说了吧  你应该也清楚了
+  // getTime  将时间格式转换成时间搓
+  // document.cookie="username=John Doe";
+  // var x = document.cookie;
+  // document.write(x);
+  var day = new Date();
+  var daysime = day.getTime();
+  //  day.setTime(77771564221);
+  document.write(day);
+</script>
+
+</html>

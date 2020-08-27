@@ -4,21 +4,93 @@
 <head></head>
 
 <body>
+      <p id="demo"></p>
+
+      <p>点击按钮，显示确认框。</p>
+      <button onclick="myFunction()">点我</button>
+      <p id="demos"></p>
+
+
+      <p>点击按钮查看输入的对话框。</p>
+      <button onclick="myFunctions()">点我</button>
+      <p id="demom"></p>
 
 </body>
 <script>
-      
+
       //创建正则表达式的对象  嘿嘿
       //  下面就是语法  欧力给
       //  总而言之： var 变量  = new RegExp("正则表达式",'匹配模式')  嘻嘻
       //test()  使用这个方法可以用来检查一个字符串是否含有正则表达式的规则  符合  true  不符合  false
+      //match()方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+      // exec() 方法检索字符串中的指定值。返回值是被找到的值。如果没有发现匹配，则返回 null。
       //    【    i    】   忽略大小写         【     g    】   全局匹配
 
 
-      var reg =  new RegExp("beidou");
+      var reg = new RegExp("beidou");
       var str = "NIHAOMA  xiaobeidou";
-      console.log(reg.test(str,'i'));
+      var parrt = /XIAOBEIDOU/ig;
 
+      console.log(reg.test(str, 'i'));
+      console.log(str.match(parrt));
+      console.log(reg.exec('看看匹配没有  beidou'));
+
+      //JavaScript Window - 浏览器对象模型
+      //浏览器对象模型（Browser Object Model (BOM)）尚无正式标准。
+      // 由于现代浏览器已经（几乎）实现了 JavaScript 交互性方面的相同方法和属性，因此常被认为是 BOM 的方法和属性。
+      //所有浏览器都支持 window 对象。它表示浏览器窗口。
+      // 所有 JavaScript 全局对象、函数以及变量均自动成为 window 对象的成员。
+      // 全局变量是 window 对象的属性。
+      // 全局函数是 window 对象的方法。
+      // 甚至 HTML DOM 的 document 也是 window 对象的属性之一：
+
+
+      var w = window.innerWidth                                //对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：
+            //  window.innerHeight - 浏览器窗口的内部高度(包括滚动条)
+            // window.innerWidth - 浏览器窗口的内部宽度(包括滚动条)
+            || document.documentElement.clientWidth        //对于 Internet Explorer 8、7、6、5：document.documentElement.clientHeight;document.body.clientHeight
+            || document.body.clientWidth;
+      var h = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+      x = document.getElementById("demo");
+      x.innerHTML = "浏览器window宽度: " + w + ", 高度: " + h + "。";
+      // window.open() - 打开新窗口
+      // window.close() - 关闭当前窗口
+      // window.moveTo() - 移动当前窗口
+      // window.resizeTo() - 调整当前窗口的尺寸
+
+
+      console.log(screen.availHeight);
+      console.log(screen.availWidth);
+      document.write(location.href);
+      // location.hostname 返回 web 主机的域名
+      // location.pathname 返回当前页面的路径和文件名
+      // location.port 返回 web 主机的端口 （80 或 443）
+      // location.protocol 返回所使用的 web 协议（http: 或 https: ）
+
+
+      //关于弹窗---确认框
+      function myFunction() {
+            //window.confirm() 方法可以不带上window对象，直接使用confirm()方法。
+            var r;
+            var x = confirm('请选择');
+            if (x == true) {
+                  r = '你选择了确定';
+            } else {
+                  r = '你选择了取消'
+            }
+            document.getElementById("demos").innerHTML = r;
+      }
+      //关于弹窗---输入框
+      function myFunctions() {
+            var r;
+            var person = prompt("请输入你的名字");
+            if (person != '' && person != null) {
+                  r = '你好' + person + ',今天感觉怎么样';
+                  document.getElementById("demom").innerHTML = r;
+            }
+      }
 </script>
 
 </html>

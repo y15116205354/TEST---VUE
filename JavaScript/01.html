@@ -13,17 +13,22 @@
   //  如果是一个大于0的值，交换位置，反之不变，0  不变
   arr = [1, 2, 3, 8, 6, 11];
 
-  // arr.sort(function (a,b) {
-  //   if (a > b) {
-  //     return 1;
-  //   } else if (a < b) {
-  //     return -1;
-  //   } else {
-  //     return 0;
-  //   }
-  // return a-b;
-  // }) //升序排列
-  // 
+  // function getsort(a,b){
+  //   return a - b;
+  // }
+  arr.sort(function (a,b) {
+    // if (a > b) {
+    //   return 1;
+    // } else if (a < b) {
+    //   return -1;
+    // } else {
+    //   return 0;
+    // }
+ 
+  return a-b;
+  }) //升序排列
+  console.log(arr);
+  // console.log(arr.sort(getsort))
 
   //知识点二：函数的方法  apply  call---两个方法都是函数的方法，需要通过函数对象来调用
   //  既然都是调用  fun() ===  fun.call === fun.apply   
@@ -33,19 +38,19 @@
   //call()方法可以将参数在对象之后依次传递
   //apply()方法 需要将实参封装在数组中传递
 
-   var obj = {
-     name :'我是猫猫'
-   };
-  function fun(a,b){
-     alert ('hello,world');
-     alert (this.name);
-     alert (this);
-     alert('A='+a+'B='+b);
-   }
+  //  var obj = {
+  //    name :'我是猫猫'
+  //  };
+  // function fun(a,b){
+  //    alert ('hello,world');
+  //    alert (this.name);
+  //    alert (this);
+  //    alert('A='+a+'B='+b);
+  //  }
 
-   fun.call(obj,4,5);
-   fun.apply(obj,[3,6]);
-   fun();
+  //  fun.call(obj,4,5);
+  //  fun.apply(obj,[3,6]);
+  //  fun();
 
 //知识点三： arguments  
 //在调用函数时，浏览器每次都会传递两个隐含的参数  this,arguments
@@ -55,11 +60,12 @@
 //---- 在调用函数时，我们所传递的实参都会在arguments中保存
 //--  arguments.length 可以用来获取实参的长度，即使不定义形参，也可以来使用实参
 //-- arguments[0]表示第一个实参     以此类推
-function bon(){
-   console.log(arguments.length);
-   console.log(Math.ceil(1.0));
-}
-bon(1,2);
+
+// function bon(){
+//    console.log(arguments.length);
+//    console.log(Math.ceil(1.0));
+// }
+// bon(1,2);
 
 </script>
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <script src="../2.2.2/vue.min.js"></script>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <roots></roots>
+  </div>
+
+
+  <div id="main">
+    <hoom></hoom>
+  </div>
+
+  <div id="Mydiv">
+    <input type="text" v-model='parMsg'>
+    <child v-bind:message="parMsg"></child>
+  </div>
+
+  <div id="vms">
+    <ol>
+      <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+      </ol>
+  </div>
+</body>
+<script>
+  // 【一】
+  //全局组件.所有实例都能用全局组件。
+  // 注意事项：  组件用 Vue.component 声明   第一个参数是组件名称
+  //  template 用来编写html 标签
+  Vue.component('roots', {
+    template: "<h1>这是一个简单的组件</h1>"
+  })
+  new Vue({
+    el: '#app',
+  })
+  // 【二】
+  //局部组件  我们也可以在实例选项中注册局部组件，这样组件只能在这个【实例】中使用：
+  // <div id="main">
+  //   <hoom></hoom>
+  // </div>
+  var chiled = {
+    template: '<h2>局部组件</h2>'
+  }
+  new Vue({
+    el: '#mian',
+    components: {
+      // <hoom> 将只在父模板可用
+      'hoom': chiled
+    }
+  })
+  // 【三】
+  //prop 是子组件用来接受父组件传递过来的数据的一个自定义属性。
+  //父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：
+  //prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。
+  // <div id="Mydiv">
+  //   <input type="text" v-model='parMsg'>
+  //   <child v-bind:message="parMsg"></child>
+  // </div>
+  Vue.component('child', {
+    props: ['message'],
+    template: "<h1>{{message}}</h1>"
+  })
+  new Vue({
+    el: '#Mydiv',
+    data: {
+      parMsg: 'nihao'
+    }
+  })
+
+  // 【四】
+  // <div id="vms">
+  //   <ol>
+  //     <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+  //     </ol>
+  // </div>
+  Vue.compoent('todo-item',{
+    props:['todo'],
+    template:'<h1>{{item.tetx}}</h1>'
+  })
+  new Vue({
+    el:'#vms',
+    data:{
+      
+    }
+  })
+</script>
+
+</html>

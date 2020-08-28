@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+    <input type="text" id="demo">
+    <button type="button" onclick="myFunctions()">点我</button>
+</body>
+
+<script>
+  //验证手机号码正则   \d  查找数字。[abc]查找方括号之间的任何字符。  [^abc]查找方括号之间除abc的任何字符
+    //(x|y)	  查找任何以 | 分隔的选项。
+    function myFunctions() {
+      var x = document.getElementById("demo").value;
+      // var reg = new RegExp()
+      var reg =  /^1[^2]\d{9}$/;
+      reg.test(x);
+      console.log( reg.test(x));
+    }
+  
+
+
+</script>
+</html>

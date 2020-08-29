@@ -6,22 +6,54 @@
 </head>
 
 <body>
-    <input type="text" id="demo">
-    <button type="button" onclick="myFunctions()">点我</button>
+  <input type="text" id="demo">
+  <button type="button" onclick="myFunctions()">点我</button>
+  <br>
 </body>
 
 <script>
   //验证手机号码正则   \d  查找数字。[abc]查找方括号之间的任何字符。  [^abc]查找方括号之间除abc的任何字符
-    //(x|y)	  查找任何以 | 分隔的选项。
-    function myFunctions() {
-      var x = document.getElementById("demo").value;
-      // var reg = new RegExp()
-      var reg =  /^1[^2]\d{9}$/;
-      reg.test(x);
-      console.log( reg.test(x));
-    }
-  
+  //(x|y)	  查找任何以 | 分隔的选项。
+  function myFunctions() {
+    var x = document.getElementById("demo").value;
+    // var reg = new RegExp()
+    var reg = /^1[^2]\d{9}$/;
+    reg.test(x);
+    console.log(reg.test(x));
+  }
+
+  //  关于正则的  
+  //  +   ===  {1,}
+  // *   === {0,}
+  // / === {0,1}
+  //  w  ===  [a-Z0-9_]   数字  字母  下划线
+  // W === [^a-A0-9 _]  除了数字 字母  下划线
+  //  d ===  [0-9]   任意数字
+  //D  === [^0-9]  除了数字
+  //  s ===  空格  
+  //  S ===   除了空格    "   "  false
+  // b ===  单词边界    /\b abc \b/    "abc"  true
+  // B  ===  除了单词  边界
+
+  emm = /\babc\b/;
+
+  console.log(emm.test("cba abc cba"));
+
+  //  去除两端空格
+  var str = "    he  llo   ";
+  //  首先  我们要明白  怎么去除     可以用 replace   把空格  替换掉  " "   =>""
+
+  // str =str.replace(/^\s*/, "");   // 去除开头空格
+  // str = str.replace(/\s*$/,"");   //  去除结尾空格
+  str = str.replace(/^\s*|\s*$/g, "");
+console.log(str.length);
+
+  // y151.1562@126.com;
+ var yx = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+ var ces = "abc.126@QQ.com";
+console.log(yx.test(ces));
 
 
 </script>
+
 </html>

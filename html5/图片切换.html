@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>图片切换</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+  <div id="mydiv">
+    <img id="img" src="../image/1.jpg" alt="">
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+  </div>
+
+</body>
+<script>
+  
+    var arr = ["../image/1.jpg","../image/2.jpg","../image/3.jpg","../image/4.jpg","../image/5.jpg","../image/6.jpg"];
+    var index = 0;
+    var img =  document.getElementById('img');
+    var pre  = document.getElementById('prev');
+    //  单击响应函数
+     pre.onclick = function(){
+        if(index == 0){
+          index = arr.length-1;
+        }
+        index--;
+        img.src = arr[index];
+     }
+   var nxt  = document.getElementById('next');
+   nxt.onclick = function(){
+        if(index == arr.length-1){
+          index = 0;
+        }
+        index++;
+        img.src = arr[index];
+     }
+</script>
+
+</html>

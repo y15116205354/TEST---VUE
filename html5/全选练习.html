@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>全选练习</title>
+  <link rel="stylesheet" href="quxuan.css">
+</head>
+
+<body>
+
+
+  <form class="" report-submit="false" bindsubmit="" bindreset="">
+
+    你爱好的运动是？
+    <input type="checkbox" id="checkallbox"> 全选/不选
+    <br>
+    <input type="checkbox" name="items" value="足球">足球
+    <input type="checkbox" name="items" value="篮球">篮球
+    <input type="checkbox" name="items" value="游泳">游泳
+    <input type="checkbox" name="items" value="学习">学习
+    <br>
+    <input type="button" id="checkall" value="全选">
+    <input type="button" id="checknoall" value="全不选">
+    <input type="button" id="checkrev" value="反选">
+    <input type="button" id="checksend" value="提交">
+
+  </form>
+
+
+</body>
+<script>
+  checkallbox = document.getElementById("checkallbox");
+  checkallbox.onclick = function () {
+    checkname = document.getElementsByName("items");
+    for (var i = 0; i < checkname.length; i++) {
+      checkname[i].checked = checkallbox.checked;
+    //在事件的响应函数中 ，响应函数是给谁绑定的  谁就是this
+      //checkname[i].checked = this.checked;
+    }
+  }
+
+
+
+  //
+  checkbox = document.getElementById("checkall");
+  checkbox.onclick = function () {
+    checkname = document.getElementsByName("items");
+    for (var i = 0; i < checkname.length; i++) {
+      checkname[i].checked = true;
+    }
+  }
+  nocheckbox = document.getElementById("checknoall");
+  nocheckbox.onclick = function () {
+    checkname = document.getElementsByName("items");
+    for (var i = 0; i < checkname.length; i++) {
+      checkname[i].checked = false;
+    }
+  }
+  checkrev = document.getElementById("checkrev");
+  checkrev.onclick = function () {
+    checkname = document.getElementsByName("items");
+    for (var i = 0; i < checkname.length; i++) {
+      checkname[i].checked = !checkname[i].checked;
+    }
+  }
+  checksend = document.getElementById("checksend");
+  checksend.onclick = function () {
+    checkname = document.getElementsByName("items");
+    for (var i = 0; i < checkname.length; i++) {
+      if (checkname[i].checked) {
+        alert(checkname[i].value);
+      }
+    }
+  }
+
+
+
+</script>
+
+</html>

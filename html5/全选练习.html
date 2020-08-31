@@ -29,40 +29,62 @@
 
 </body>
 <script>
+  //第一个全选/全不选
   checkallbox = document.getElementById("checkallbox");
   checkallbox.onclick = function () {
     checkname = document.getElementsByName("items");
     for (var i = 0; i < checkname.length; i++) {
       checkname[i].checked = checkallbox.checked;
-    //在事件的响应函数中 ，响应函数是给谁绑定的  谁就是this
+      //在事件的响应函数中 ，响应函数是给谁绑定的  谁就是this
       //checkname[i].checked = this.checked;
+    }
+  }
+
+  //有一个没有选择，就是全不选，反之
+
+  checkname = document.getElementsByName("items");
+  for (var i = 0; i < checkname.length; i++) {
+    checkname[i].onclick = function () {
+      checkallbox.checked = true;
+      for(var j =0; j<checkname.length; j++){
+        if(!checkname[j].checked){
+          checkallbox.checked = false;
+          break; 
+        }
+      }
     }
   }
 
 
 
-  //
+  //全选
   checkbox = document.getElementById("checkall");
   checkbox.onclick = function () {
     checkname = document.getElementsByName("items");
     for (var i = 0; i < checkname.length; i++) {
       checkname[i].checked = true;
     }
+    checkallbox.checked = true;
   }
+    //全不选
   nocheckbox = document.getElementById("checknoall");
   nocheckbox.onclick = function () {
     checkname = document.getElementsByName("items");
     for (var i = 0; i < checkname.length; i++) {
       checkname[i].checked = false;
     }
+    checkallbox.checked = false;
   }
+  //反选
   checkrev = document.getElementById("checkrev");
   checkrev.onclick = function () {
     checkname = document.getElementsByName("items");
     for (var i = 0; i < checkname.length; i++) {
       checkname[i].checked = !checkname[i].checked;
     }
+    checkallbox.checked = !checkallbox.checked;
   }
+  //提交
   checksend = document.getElementById("checksend");
   checksend.onclick = function () {
     checkname = document.getElementsByName("items");

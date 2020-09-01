@@ -1,0 +1,35 @@
+#mydiv{
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  overflow: hidden;
+}
+#div{
+  text-align: center;
+  background-color: red;
+  width: 120px;
+  transform: rotate(-45deg);
+  margin: 17px 0 0 -31px;
+}
+#divs{
+	width:100px;
+	height:100px;
+	background:red;
+	position:relative;
+	animation:myfirst 5s linear 2s  infinite alternate;  /*infinite 控制循环次数  alternate控制循环方向*/
+
+}
+@keyframes myfirst
+{
+	0%   {background:red; left:0px; top:0px;}
+	25%  {background:yellow; left:200px; top:0px;}
+	50%  {background:blue; left:200px; top:200px;}
+	75%  {background:green; left:0px; top:200px;}
+	100% {background:pink; left:0px; top:0px;}
+}
+
+.newspaper{
+  column-count:3;
+  column-rule-style:dotted;
+  /* column-width:100px; */
+}

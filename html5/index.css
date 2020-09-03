@@ -46,3 +46,43 @@ li a:hover, .dropdown:hover, .dropbtn {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
+#p1{
+  width: 300px;
+  background-color: yellow;
+  margin-bottom: 20px;
+}
+#p2{
+  width: 300px;
+  background-color: rgb(4, 241, 103);
+  margin-bottom: 20px;
+}
+#p3{
+  width: 300px;
+  background-color: rgb(74, 71, 250);
+  margin-bottom: 20px;
+}
+#p4{
+  width: 300px;
+  background-color: rgb(241, 139, 6);
+  margin-bottom: 20px;
+}
+#p5{
+  width: 300px;
+  background-color: rgb(241, 22, 6);
+  margin-bottom: 20px;
+}
+
+#panel,#flip
+{
+	padding:5px;
+	text-align:center;
+	background-color:#e5eecc;
+	border:solid 1px #c3c3c3;
+}
+#panel
+{
+	padding:50px;
+	display:none;
+}

@@ -5,6 +5,7 @@
   <title>下拉菜单实例|菜鸟教程(runoob.com)</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="index.css">
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"> </script>
 </head>
 
 <body>
@@ -42,14 +43,82 @@
   </div>
   <h2 class="test">这是一个标题</h2>
   <p class="test">这是一个段落。</p>
-  <p>这是另外一个段落。</p>
-  <button>点我</button>
+  <p class="dbtest">这是另外一个段落。</p>
+  <button class="toggle">显示和隐藏（toggle）</button>
+  <button class="button">点我（hide）</button>
+  <button class="hide">双击点我(show)</button>
+  <br><br><br>
+
+  <p id="p1">鼠标指针进入此处，会看到弹窗。</p>
+  <p id="p2">鼠标指针从此处离开，会看到弹窗</p>
+  <p id="p3">鼠标指针从此处按下，会看到弹窗</p>
+  <p id="p4">鼠标指针在段落上松开。，会看到弹窗</p>
+  <p id="p4">鼠标指针进入此处，从此处离开，会看到弹窗</p>
+  <br><br><br>
+  Name: <input type="text" name="fullname"><br>
+  Email: <input type="text" name="email">
+  <br><br><br>
+  <div id="flip">点我滑下面板</div>
+  <div id="panel">Hello world!</div>
+  <br><br><br>
+  <p id="test1">这是一个段落。</p>
+  <p id="test2">这是另外一个段落。</p>
+  <p>输入框: <input type="text" id="test3" value="菜鸟教程"></p>
+  <button id="btn1">设置文本</button>
+  <button id="btn2">设置 HTML</button>
+  <button id="btn3">设置值</button>
 
 </body>
 <script>
   $(document).ready(function () {
-    $("button").click(function () {
+    $(".toggle").click(function () {
+      $(".dbtest").toggle();
+    });
+    $(".button").click(function () {
       $(".test").hide();
+    });
+    $(".hide").dblclick(function () {
+      $(".test").show();
+    });
+
+    $("#p1").mouseenter(function () {
+      alert('您的鼠标移到了 id="p1" 的元素上!');
+    });
+    $("#p2").mouseleave(function () {
+      alert('您的鼠标离开了 id="p2" 的元素上!');
+    });
+    $("#p3").mousedown(function () {
+      alert("鼠标在该段落上按下！");
+    });
+    $("#p4").mouseup(function () {
+      alert("鼠标在段落上松开。");
+    });
+    $("#p5").hover(
+      function () {
+        alert("你进入了 p1!");
+      },
+      function () {
+        alert("拜拜! 现在你离开了 p1!");
+      }
+    );
+    // focus()获得焦点时  blur()当元素失去焦点时
+    $("input").focus(function () {
+      $(this).css("background-color", "#cccccc");
+    });
+    $("input").blur(function () {
+      $(this).css("background-color", "#ffffff");
+    });
+    $("#flip").click(function () {
+      $("#panel").slideToggle();
+    });
+    $("#btn1").click(function () {
+      $("#test1").text("Hello world!");
+    });
+    $("#btn2").click(function () {
+      $("#test2").html("<b>Hello world!</b>");
+    });
+    $("#btn3").click(function () {
+      $("#test3").val("RUNOOB");
     });
   });
 </script>

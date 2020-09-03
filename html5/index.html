@@ -1,43 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>下拉菜单实例|菜鸟教程(runoob.com)</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="index.css">
+  <title>下拉菜单实例|菜鸟教程(runoob.com)</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
 
-<ul>
-  <li><a class="active" href="#home">主页</a></li>
-  <li><a href="#news">新闻</a></li>
+  <ul>
+    <li><a class="active" href="#home">主页</a></li>
+    <li><a href="#news">新闻</a></li>
+    <div class="dropdown">
+      <a href="#" class="dropbtn">下拉菜单</a>
+      <div class="dropdown-content">
+        <a href="#">链接 1</a>
+        <a href="#">链接 2</a>
+        <a href="#">链接 3</a>
+      </div>
+    </div>
+  </ul>
+
+  <h3>导航栏上的下拉菜单</h3>
+  <p>鼠标移动到 "下拉菜单" 链接先显示下拉菜单。</p>
+
+
+
+
+
+  <h2>下拉菜单</h2>
+  <p>鼠标移动到按钮上打开下拉菜单。</p>
+
   <div class="dropdown">
-    <a href="#" class="dropbtn">下拉菜单</a>
+    <button class="dropbtn">下拉菜单</button>
     <div class="dropdown-content">
-      <a href="#">链接 1</a>
-      <a href="#">链接 2</a>
-      <a href="#">链接 3</a>
+      <a href="//www.runoob.com">菜鸟教程 1</a>
+      <a href="//www.runoob.com">菜鸟教程 2</a>
+      <a href="//www.runoob.com">菜鸟教程 3</a>
     </div>
   </div>
-</ul>
-
-<h3>导航栏上的下拉菜单</h3>
-<p>鼠标移动到 "下拉菜单" 链接先显示下拉菜单。</p>
-
-
-
-
-
-<h2>下拉菜单</h2>
-<p>鼠标移动到按钮上打开下拉菜单。</p>
-
-<div class="dropdown">
-  <button class="dropbtn">下拉菜单</button>
-  <div class="dropdown-content">
-    <a href="//www.runoob.com">菜鸟教程 1</a>
-    <a href="//www.runoob.com">菜鸟教程 2</a>
-    <a href="//www.runoob.com">菜鸟教程 3</a>
-  </div>
-</div>
+  <h2 class="test">这是一个标题</h2>
+  <p class="test">这是一个段落。</p>
+  <p>这是另外一个段落。</p>
+  <button>点我</button>
 
 </body>
+<script>
+  $(document).ready(function () {
+    $("button").click(function () {
+      $(".test").hide();
+    });
+  });
+</script>
+
 </html>

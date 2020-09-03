@@ -68,6 +68,10 @@
   <button id="btn2">设置 HTML</button>
   <button id="btn3">设置值</button>
 
+  <br><br><br>
+  <p class="ceshi">这是一个段落。</p>
+  <p class="ceshi">这是另外一个段落。</p>
+  <button class="cesbtn" value="添加">添加</button>
 </body>
 <script>
   $(document).ready(function () {
@@ -120,6 +124,9 @@
     $("#btn3").click(function () {
       $("#test3").val("RUNOOB");
     });
+    $(".cesbtn").click(function(){
+      $(".ceshi").append(" <p>追加文本</p>");
+    })
   });
 </script>
 

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ajax</title>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="div1">
+    <h2>使用 jQuery AJAX 修改该文本</h2>
+  </div>
+  <button>获取外部内容</button>
+</body>
+<script>
+  $(document).ready(function(){
+    $("button").click(function(){
+      $("#div1").load("../JavaScript/ajax_info.txt");
+    })
+  })
+
+</script>
+
+</html>

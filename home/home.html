@@ -39,7 +39,7 @@
 
       <!-- 在 input 输入框中我们可以使用 v-model 指令来实现双向数据绑定： -->
       <p>{{text}}</p>
-      <input v-model="text">
+      <input v-model.trim="text">
    <h4>-------下面是反向文本输出-----(●ˇ∀ˇ●)</h4>
     <br>
      <p>{{cont.split('').reverse().join('')}}</p>

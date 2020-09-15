@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <SCript src="../2.2.2/vue.min.js"></SCript>
+</head>
+
+<body>
+
+  <div id="app">
+    <li v-for="item in list">{{item}}</li>
+    <p>55</p>
+  </div>
+</body>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      list: [1, 2, 3, 4, 5],
+    }
+  })
+</script>
+
+</html>     
